@@ -1,10 +1,10 @@
 # WEB103 Prework - _👉🏿 Creatorverse_
 
-Submitted by: **👉🏿 your name here**
+Submitted by: Chris Dombele
 
-About this web app: **👉🏿 app description here**
+About this web app: App to upload creators
 
-Time spent: **👉🏿 X** hours
+Time spent: 16 hours
 
 ## Required Features
 
@@ -37,11 +37,11 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='web103-prework.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ... 👉🏿 GIF tool here
+GIF created with ... Kap
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
