@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import type { Creator } from "../types/Creator";
+import { creatorPath, editPath } from "../utils/creatorPath";
 
 interface CardProps {
   creator: Creator;
@@ -21,10 +22,10 @@ const Card = ({ creator }: CardProps) => {
         <a className="card-link" href={url} target="_blank" rel="noreferrer">
           Visit channel
         </a>
-        <Link className="card-link" to={`/edit/${id}`}>
+        <Link className="card-link" to={editPath(id, name)}>
           Edit
         </Link>
-        <Link className="button" to={`/creator/${id}`}>
+        <Link className="button" to={creatorPath(id, name)}>
           Find out more
           <span className="material-symbols-outlined">arrow_right_alt</span>
         </Link>

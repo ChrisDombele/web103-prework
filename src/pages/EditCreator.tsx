@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { supabase } from "../client.ts";
+import { creatorPath, parseIdFromParam } from "../utils/creatorPath";
 
 const EditCreator = () => {
-  const { id } = useParams();
+  const { idSlug } = useParams();
+  const id = parseIdFromParam(idSlug);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
@@ -14,6 +16,11 @@ const EditCreator = () => {
 
   useEffect(() => {
     async function fetchCreator() {
+      if (!id) {
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await supabase
         .from("creators")
         .select()
@@ -37,6 +44,10 @@ const EditCreator = () => {
 
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!id) {
+      return;
+    }
+
     setSaving(true);
 
     const { error } = await supabase
@@ -55,7 +66,7 @@ const EditCreator = () => {
       return;
     }
 
-    navigate(`/creator/${id}`);
+    navigate(creatorPath(id, name));
   }
 
   async function handleDelete() {
@@ -134,7 +145,11 @@ const EditCreator = () => {
           <button type="button" className="secondary" onClick={handleDelete}>
             Delete Creator
           </button>
-          <Link to={`/creator/${id}`} role="button" className="contrast">
+          <Link
+            to={id ? creatorPath(id, name) : "/"}
+            role="button"
+            className="contrast"
+          >
             Cancel
           </Link>
         </footer>

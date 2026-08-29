@@ -2,14 +2,22 @@ import { useEffect, useState } from "react";
 import { supabase } from "../client.ts";
 import type { Creator } from "../types/Creator";
 import { Link, useParams } from "react-router";
+import { editPath, parseIdFromParam } from "../utils/creatorPath";
 
 const ViewCreator = () => {
-  const { id } = useParams();
+  const { idSlug } = useParams();
+  const id = parseIdFromParam(idSlug);
   const [creator, setCreator] = useState<Creator | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchCreator() {
+      if (!id) {
+        setCreator(null);
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await supabase
         .from("creators")
         .select()
@@ -58,7 +66,11 @@ const ViewCreator = () => {
           <h2>{creator.name}</h2>
           <p>{creator.description}</p>
           <div className="creator-actions">
-            <Link to={`/edit/${creator.id}`} role="button" className="secondary">
+            <Link
+              to={editPath(creator.id, creator.name)}
+              role="button"
+              className="secondary"
+            >
               Edit
             </Link>
             <a
