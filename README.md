@@ -40,7 +40,7 @@ Here's a walkthrough of implemented required features:
 <img src='web103-prework.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 GIF created with kap.
 
-<div style="position: relative; padding-bottom: 57.022175290390706%; height: 0;"><iframe src="https://www.loom.com/embed/32f12456504c47f5bd80d59aaeb5ad42" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+https://www.loom.com/embed/32f12456504c47f5bd80d59aaeb5ad42
 Video created with Loom
 
 <!-- Replace this with whatever GIF tool you used! -->
